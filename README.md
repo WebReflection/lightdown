@@ -22,7 +22,7 @@ The reason is a less empowering layout, without images, or hidden links, with fu
 
 ### Lightdown VS HTML
 
-While produced output include safe HTML, bear in mind lightdown does not do any extra input sanitization: what goes in, goes out.
+While produced output contains safe HTML, bear in mind lightdown does not do any extra input sanitization: what goes in, goes out.
 
 If you want to be sure your text is 100% HTML safe, consider using [html-escaper](https://github.com/WebReflection/html-escaper#html-escaper--) or any other escaper.
 
@@ -43,6 +43,6 @@ element.innerHTML = lightdown(escape(text));
   * double `"quotes"` for proper `“quotes”`
   * single tick `` ` `` for inline code
   * multiple ticks for multi line code. If there is a programming language name right after ticks it will be used as code class.
-  * start a line with ` * ` to convert that `*` into a bullet `•`
+  * start a line with a ` * `, surrounded by one or more spaces, to convert that `*` into a bullet `•`
   * all links are shown inline with a max length, still fully preserving their original URL
 

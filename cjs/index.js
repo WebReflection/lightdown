@@ -69,7 +69,7 @@ function lightdown(s) {
     // replace strong, strike, u, em, quotes
     .replace(re(), place)
     // replace bullets list
-    .replace(/^(\s+)\*(\s+)/gm, '$1\u2022$2')
+    .replace(/^( *)\*( +)/gm, '$1\u2022$2')
     // put back URLs and code through evil chars
     .replace(
       /\x01/g,
