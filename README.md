@@ -1,2 +1,2 @@
 # lightdown
-A minimalistic, safe, chat oriented markdown-ish utility.
+A minimalistic, safe, and chat oriented, markdown-ish utility.

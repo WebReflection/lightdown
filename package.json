@@ -1,0 +1,32 @@
+{
+  "author": {
+    "name": "Andrea Giammarchi"
+  },
+  "browser": "min.js",
+  "description": "A minimalistic, safe, and chat oriented, markdown-ish utility.",
+  "keywords": [
+    "markdown",
+    "light",
+    "minimalistic",
+    "safe",
+    "chat"
+  ],
+  "license": "ISC",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "name": "lightdown",
+  "scripts": {
+    "build": "npm run cjs && npm run esm && npm run min && npm test",
+    "cjs": "cp index.js cjs/ && echo 'module.exports = lightdown;' >> cjs/index.js",
+    "esm": "cp index.js esm/ && echo 'export default lightdown;' >> esm/index.js",
+    "min": "uglifyjs index.js --comments=/^!/ -c -m -o min.js",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "test": "istanbul cover test/index.js"
+  },
+  "version": "0.0.0",
+  "devDependencies": {
+    "coveralls": "^3.0.0",
+    "istanbul": "^0.4.5",
+    "uglify-es": "^3.3.9"
+  }
+}
