@@ -23,7 +23,7 @@
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "test": "istanbul cover test/index.js"
   },
-  "version": "0.2.0",
+  "version": "0.2.1",
   "devDependencies": {
     "coveralls": "^3.0.0",
     "istanbul": "^0.4.5",
