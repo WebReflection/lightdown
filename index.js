@@ -28,7 +28,7 @@ function lightdown(s) {
     .replace(/\x01/g, '')
     // replace multi line code with evil char
     .replace(
-      /(`{2,})([\S\s]+?)\1/g,
+      /(`{2,})([\S\s]+?)\1(\r\n|\n|\r)?/g,
       function ($0, $1, $2) {
         // look for the programming language
         var pl = (/^([a-z]+)[\r\n]/i.exec($2) || ['',''])[1];
