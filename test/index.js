@@ -47,7 +47,7 @@ var lightdown = require('../cjs/index.js');
   ],
   [
     '> block quote\nout',
-    '<blockquote>block quote</blockquote>\nout'
+    '<blockquote>block quote</blockquote>out'
   ]
 ].forEach(function(test) {
   console.assert(
