@@ -22,12 +22,24 @@ var lightdown = require('../cjs/index.js');
     'this text contains <pre><code class="js">multi line code</code></pre>.'
   ],
   [
+    '`` ` `` tick in ticks',
+    '<pre><code class="">`</code></pre> tick in ticks'
+  ],
+  [
     'this is a link: http://google.com',
-    'this is a link: <a href="http://google.com">http://google.com</a>'
+    'this is a link: <a href="http://google.com">google.com</a>'
   ],
   [
     'this is a weird link: http://google.com?a="&b=2 .',
-    'this is a weird link: <a href="http://google.com?a=&quot;&b=2">http://google.com?a="&b=2</a> .'
+    'this is a weird link: <a href="http://google.com?a=&quot;&b=2">google.com?a="&b=2</a> .'
+  ],
+  [
+    'a very long link http://www.spotterguides.com/portfolio/18_ipc/?very-long',
+    'a very long link <a href="http://www.spotterguides.com/portfolio/18_ipc/?very-long">spotterguides.com/portfolio/18_ipc/?…</a>'
+  ],
+  [
+    ' * one bullet\n * two bullets',
+    ' • one bullet\n • two bullets'
   ]
 ].forEach(function(test) {
   console.assert(

@@ -55,12 +55,21 @@ function lightdown(s) {
     .replace(
       /(^|\s)([a-z]{2,}:\/\/[^\s/$.?#-]+\.\S+)/g,
       function ($0, $1, $2) {
-        a.push($1 + '<a href="' + $2.replace(/"/g, '&quot;') + '">' + $2 + '</a>');
+        $1 = $1 + '<a href="' + $2.replace(/"/g, '&quot;') + '">';
+        $2 = $2.replace(
+          /^[a-z]{2,}:\/\/(www\.)?(.{0,36})(.+)$/,
+          function ($0, $1, $2, $3) {
+            return $2 + ($3.length < 2 ? $3 : '\u2026');
+          }
+        );
+        a.push($1 + $2 + '</a>');
         return '\x01';
       }
     )
     // replace strong, strike, u, em, quotes
     .replace(re(), place)
+    // replace bullets list
+    .replace(/^(\s+)\*(\s+)/gm, '$1\u2022$2')
     // put back URLs and code through evil chars
     .replace(
       /\x01/g,
