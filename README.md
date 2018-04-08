@@ -4,7 +4,7 @@
 
 A minimalistic, safe, and chat oriented, markdown-ish utility.
 
-  * less than 0.6K
+  * around 0.6K
   * compatible with ES3+ (every engine, every browser)
   * code is always 100% preserved
   * links are preserved but shown with a maximum length
