@@ -24,14 +24,15 @@ The reason is a less empowering layout, without images, or hidden links, with fu
 
 While produced output contains safe HTML, bear in mind lightdown does not do any extra input sanitization: what goes in, goes out.
 
-If you want to be sure your text is 100% HTML safe, consider using [html-escaper](https://github.com/WebReflection/html-escaper#html-escaper--) or any other escaper.
+If you want to be sure your text is 100% HTML safe, replace `<` and `>` to avoid surprises.
 
 ```js
 const lightdown = require('lightdown');
-const {escape} = require('html-escaper');
 
 // safely inject the result
-element.innerHTML = lightdown(escape(text));
+element.innerHTML = lightdown(
+  text.replace(/[<>]/g, m => ({'<':'&lt;', '>':'&gt;'}[m]))
+);
 ```
 
 
