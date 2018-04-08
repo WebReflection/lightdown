@@ -44,6 +44,10 @@ var lightdown = require('../cjs/index.js');
   [
     ' * one bullet\n * two bullets',
     ' • one bullet\n • two bullets'
+  ],
+  [
+    '> block quote\nout',
+    '<blockquote>block quote</blockquote>\nout'
   ]
 ].forEach(function(test) {
   console.assert(

@@ -70,6 +70,8 @@ function lightdown(s) {
     .replace(re(), place)
     // replace bullets list
     .replace(/^( *)\*( +)/gm, '$1\u2022$2')
+    // replace block quotes
+    .replace(/^> (\S.*)/gm, '<blockquote>$1</blockquote>')
     // put back URLs and code through evil chars
     .replace(
       /\x01/g,
