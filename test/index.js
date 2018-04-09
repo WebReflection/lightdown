@@ -6,8 +6,8 @@ var lightdown = require('../cjs/index.js');
     'hello <em>world</em>'
   ],
   [
-    'this "sentence" _has_ *em* and **strong** and a ~strike~ too',
-    'this “sentence” <u>has</u> <em>em</em> and <strong>strong</strong> and a <strike>strike</strike> too'
+    'this "sentence" _has_ *em* and **strong** and a ~strike~ __too__',
+    'this “sentence” <em>has</em> <em>em</em> and <strong>strong</strong> and a <strike>strike</strike> <u>too</u>'
   ],
   [
     'this text contains `var code = 123`.',

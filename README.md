@@ -39,8 +39,8 @@ element.innerHTML = lightdown(
 ### Lightdown: Syntax
 
   * single `*` for emphasis, more `**` for strong
+  * single `_` for emphasis, more `__` for underscore
   * one or more `~` for striking through
-  * one or more `_` for underscore
   * double `"quotes"` for proper `“quotes”`
   * single tick `` ` `` for inline code
   * multiple ticks for multi line code. If there is a programming language name right after ticks it will be used as code class.

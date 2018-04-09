@@ -9,14 +9,14 @@ function lightdown(s) {
       // a new regexp is returned each time
       // to avoid messing up with nested parsing
       // while outer parsing is not complete
-      return /([*~_"]+)(?!\s)([\S\s]*?\S)\1/g;
+      return /([*_~"]+)(?!\s)([\S\s]*?\S)\1/g;
     },
     place = function ($0, $1, $2) {
       $2 = $2.replace(re(), place);
       switch ($1.charAt(0)) {
         case '*': $1 = ($1.length === 1 ? 'em>' : 'strong>'); break;
+        case '_': $1 = ($1.length === 1 ? 'em>' : 'u>'); break;
         case '~': $1 = 'strike>'; break;
-        case '_': $1 = 'u>'; break;
         case '"': return '\u201C' + $2 + '\u201D';
       }
       return '<' + $1 + $2 + '</' + $1;
