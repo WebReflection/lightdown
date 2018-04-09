@@ -9,7 +9,7 @@ A minimalistic, safe, and chat oriented, markdown-ish utility.
   * code is always 100% preserved
   * links are preserved but shown with a maximum length
 
-[Live Demo](https://codepen.io/WebReflection/pen/yKGBWo?editors=0100)
+[Live Demo](https://codepen.io/WebReflection/full/yKGBWo/)
 
 ### Different from Markdown
 
