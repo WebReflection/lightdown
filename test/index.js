@@ -22,6 +22,10 @@ var lightdown = require('../cjs/index.js');
     'this text contains <pre><code class="js">multi line code</code></pre>.'
   ],
   [
+    'this text contains ``` js\nmulti line code```.',
+    'this text contains <pre><code class="js">multi line code</code></pre>.'
+  ],
+  [
     'this text contains ```js\nmulti line code```\nand more',
     'this text contains <pre><code class="js">multi line code</code></pre>and more'
   ],

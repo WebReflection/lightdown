@@ -16,11 +16,12 @@
   "module": "esm/index.js",
   "name": "lightdown",
   "scripts": {
-    "build": "npm run cjs && npm run esm && npm run min && npm test",
+    "build": "npm run cjs && npm run esm && npm run min && npm test && npm run size",
     "cjs": "cp index.js cjs/ && echo 'module.exports = lightdown;' >> cjs/index.js",
     "esm": "cp index.js esm/ && echo 'export default lightdown;' >> esm/index.js",
     "min": "uglifyjs index.js --comments=/^!/ -c -m -o min.js",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "size": "gzip -c9 min.js | wc -c",
     "test": "istanbul cover test/index.js"
   },
   "version": "0.3.0",

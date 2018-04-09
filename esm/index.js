@@ -31,11 +31,11 @@ function lightdown(s) {
       /(`{2,})([\S\s]+?)\1(\r\n|\n|\r)?/g,
       function ($0, $1, $2) {
         // look for the programming language
-        var pl = (/^([a-z]+)[\r\n]/i.exec($2) || ['',''])[1];
+        var pl = '', match = /^( )?([a-z]+)[\r\n]/i.exec($2);
         // lower case it and remove it from the code
-        if (pl) {
-          pl = pl.toLowerCase();
-          $2 = $2.slice(pl.length);
+        if (match) {
+          pl = match[2].toLowerCase();
+          $2 = $2.slice((match[1] || '').length + pl.length);
         }
         // trim the code to avoid undesired lines
         $2 = $2.replace(/^\s+|\s+$/g, '');
