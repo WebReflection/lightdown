@@ -72,6 +72,8 @@ function lightdown(s) {
     .replace(/^( *)\*( +)/gm, '$1\u2022$2')
     // replace block quotes
     .replace(/^> (\S.*)(\r\n|\n|\r)?/gm, '<blockquote>$1</blockquote>')
+    // aggregate block quotes
+    .replace(/<\/blockquote><blockquote>/gm, '<br/>')
     // put back URLs and code through evil chars
     .replace(
       /\x01/g,
