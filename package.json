@@ -24,7 +24,7 @@
     "size": "gzip -c9 min.js | wc -c",
     "test": "istanbul cover test/index.js"
   },
-  "version": "0.5.0",
+  "version": "0.5.1",
   "devDependencies": {
     "coveralls": "^3.0.0",
     "istanbul": "^0.4.5",
