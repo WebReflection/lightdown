@@ -2,7 +2,7 @@
 function lightdown(s) {
 
   var
-    a = [],
+    a = [[],[],[]],
     re = function () {
       // note that *_asd*_ would work as strong
       // this cleans up automatically malformed marks
@@ -25,7 +25,7 @@ function lightdown(s) {
 
   return s
     // drop evil chars
-    .replace(/\x01/g, '')
+    .replace(/[\x01-\x03]/g, '')
     // replace multi line code with evil char
     .replace(
       /(`{2,})([\S\s]+?)\1(\r\n|\n|\r)?/g,
@@ -39,7 +39,7 @@ function lightdown(s) {
         }
         // trim the code to avoid undesired lines
         $2 = $2.replace(/^\s+|\s+$/g, '');
-        a.push('<pre><code class="' + pl + '">' + $2 + '</code></pre>');
+        a[0].push('<pre><code class="' + pl + '">' + $2 + '</code></pre>');
         return '\x01';
       }
     )
@@ -47,8 +47,8 @@ function lightdown(s) {
     .replace(
       /(`)(?!\s)([\S\s]*?\S)\1/g,
       function ($0, $1, $2) {
-        a.push('<code>' + $2 + '</code>');
-        return '\x01';
+        a[1].push('<code>' + $2 + '</code>');
+        return '\x02';
       }
     )
     // replace URLs with evil char
@@ -62,8 +62,8 @@ function lightdown(s) {
             return $2 + ($3.length < 2 ? $3 : '\u2026');
           }
         );
-        a.push($1 + $2 + '</a>');
-        return '\x01';
+        a[2].push($1 + $2 + '</a>');
+        return '\x03';
       }
     )
     // replace strong, strike, u, em, quotes
@@ -76,9 +76,9 @@ function lightdown(s) {
     .replace(/<\/blockquote><blockquote>/gm, '<br/>')
     // put back URLs and code through evil chars
     .replace(
-      /\x01/g,
-      function () {
-        return a.shift();
+      /[\x01-\x03]/g,
+      function (c) {
+        return a[c.charCodeAt(0) - 1].shift();
       }
     );
 
