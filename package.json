@@ -2,7 +2,7 @@
   "author": {
     "name": "Andrea Giammarchi"
   },
-  "browser": "min.js",
+  "unpkg": "min.js",
   "description": "A minimalistic, safe, and chat oriented, markdown-ish utility.",
   "keywords": [
     "markdown",
